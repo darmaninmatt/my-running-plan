@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Running Plan v2</title>
+    <style>
+      :root {
+        --primary-color: #007bff;
+        --secondary-color: #6c757d;
+        --success-color: #28a745;
+        --warning-color: #ffc107;
+        --light-color: #f8f9fa;
+        --dark-color: #343a40;
+        --white-color: #ffffff;
+        --border-radius: 10px;
+        --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        background-color: var(--light-color);
+        color: var(--dark-color);
+        margin: 0;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+
+      nav {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+        background-color: #e9ecef;
+        border-radius: var(--border-radius);
+        padding: 5px;
+      }
+
+      .nav-tab {
+        flex: 1;
+        padding: 12px 10px;
+        text-align: center;
+        background-color: transparent;
+        border: none;
+        font-size: 1rem;
+        font-weight: bold;
+        color: var(--secondary-color);
+        cursor: pointer;
+        border-radius: 7px;
+        transition: all 0.3s ease;
+      }
+
+      .nav-tab:hover {
+        background-color: #d8dde2;
+      }
+
+      .nav-tab.active {
+        background-color: var(--white-color);
+        color: var(--primary-color);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      }
+
+      .view {
+        display: none;
+      }
+
+      .view.active {
+        display: block;
+      }
+
+      .dashboard-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 2rem;
+      }
+
+      @media (min-width: 600px) {
+        .dashboard-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .card {
+        background-color: var(--white-color);
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .card h3 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: var(--dark-color);
+      }
+
+      .card-content {
+        font-size: 1rem;
+        color: var(--secondary-color);
+        flex-grow: 1;
+      }
+
+      .card-content strong {
+        color: var(--dark-color);
+        font-size: 1.1rem;
+      }
+
+      .card-footer {
+        margin-top: 1.5rem;
+      }
+
+      #run-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .run-item {
+        background-color: var(--white-color);
+        border-radius: var(--border-radius);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+        padding: 1rem 1.5rem;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        border-left: 5px solid var(--secondary-color);
+      }
+
+      .run-item.completed {
+        border-left-color: var(--success-color);
+      }
+
+      .run-item.completed .run-info {
+        opacity: 0.7;
+      }
+
+      .run-info {
+        flex-grow: 1;
+      }
+
+      .run-info strong {
+        display: block;
+        font-size: 1.1rem;
+        color: var(--dark-color);
+      }
+
+      .run-info .details {
+        font-size: 0.95rem;
+        color: var(--secondary-color);
+        margin: 0.25rem 0;
+      }
+
+      .run-info .completion-date {
+        font-size: 0.85rem;
+        color: var(--success-color);
+        font-weight: bold;
+      }
+
+      .run-actions {
+        margin-left: 1rem;
+        margin-top: 0.5rem;
+      }
+
+      .btn {
+        color: var(--white-color);
+        border: none;
+        padding: 10px 18px;
+        border-radius: 7px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.2s ease;
+        font-size: 0.95rem;
+      }
+
+      .btn-complete {
+        background-color: var(--primary-color);
+      }
+      .btn-complete:hover {
+        background-color: #0056b3;
+      }
+
+      .btn-undo {
+        background-color: var(--secondary-color);
+      }
+      .btn-undo:hover {
+        background-color: #5a6268;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Your Running Plan</h1>
+      </header>
+
+      <nav>
+        <button class="nav-tab active" id="tab-home">Home</button>
+        <button class="nav-tab" id="tab-plan">Running</button>
+        <button class="nav-tab" id="tab-stretch">Stretching</button>
+      </nav>
+
+      <main>
+        <div id="home-view" class="view active">
+          <div class="dashboard-grid">
+            <div class="card" id="upcoming-run-card"></div>
+            <div class="card" id="last-run-card"></div>
+          </div>
+        </div>
+
+        <div id="plan-view" class="view">
+          <h2>Full Running Plan</h2>
+          <ul id="run-list"></ul>
+        </div>
+
+        <div id="stretch-view" class="view">
+          <h2>Daily Stretching</h2>
+          <div class="dashboard-grid" id="stretch-cards"></div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const runningPlanData = [
+          // Week 1
+          {
+            week: 1,
+            day: 1,
+            type: "Interval Focus",
+            details:
+              "5 min warm-up. 8 x (2 min run, 1 min walk). 5 min cool-down.",
+            completed: false,
+            dateCompleted: null,
+          },
+          {
+            week: 1,
+            day: 2,
+            type: "Endurance Focus",
+            details: "30-minute continuous run/walk at a comfortable pace.",
+            completed: false,
+            dateCompleted: null,
+          },
+          {
+            week: 1,
+            day: 3,
+            type: "Easy Run (Optional)",
+            details: "20-25 minutes at an easy, conversational pace.",
+            completed: false,
+            dateCompleted: null,
+          },
+          // Week 2
+          {
+            week: 2,
+            day: 1,
+            type: "Interval Focus",
+            details:
+              "5 min warm-up. 6 x (3 min run, 1 min walk). 5 min cool-down.",
+            completed: false,
+            dateCompleted: null,
+          },
+          {
+            week: 2,
+            day: 2,
+            type: "Endurance Focus",
+            details: "35-minute run, aiming for longer running intervals.",
+            completed: false,
+            dateCompleted: null,
+          },
+          {
+            week: 2,
+            day: 3,
+            type: "Easy Run (Optional)",
+            details: "25 minutes at an easy pace.",
+            completed: false,
+            dateCompleted: null,
+          },
+          // Week 3
+          {
+            week: 3,
+            day: 1,
+            type: "Interval Focus",
+            details:
+              "5 min warm-up. 5 x (4 min run, 1 min walk). 5 min cool-down.",
+            completed: false,
+            dateCompleted: null,
+          },
+          {
+            week: 3,
+            day: 2,
+            type: "Endurance Focus",
+            details:
+              "Run 4 km. Focus on a steady pace, taking walking breaks as needed.",
+            completed: false,
+            dateCompleted: null,
+          },
+          {
+            week: 3,
+            day: 3,
+            type: "Easy Run (Optional)",
+            details: "30 minutes at an easy pace.",
+            completed: false,
+            dateCompleted: null,
+          },
+          // Week 4
+          {
+            week: 4,
+            day: 1,
+            type: "Interval Focus",
+            details:
+              "5 min warm-up. 4 x (5 min run, 1 min walk). 5 min cool-down.",
+            completed: false,
+            dateCompleted: null,
+          },
+          {
+            week: 4,
+            day: 2,
+            type: "Endurance Focus",
+            details: "Run 4.5 km. Try to run the first 2km without stopping.",
+            completed: false,
+            dateCompleted: null,
+          },
+          {
+            week: 4,
+            day: 3,
+            type: "Easy Run (Optional)",
+            details:
+              "30 minutes at an easy pace, with a few faster-paced strides.",
+            completed: false,
+            dateCompleted: null,
+          },
+          // Week 5
+          {
+            week: 5,
+            day: 1,
+            type: "Interval Focus",
+            details:
+              "5 min warm-up. 3 x (6 min run, 1 min walk). 5 min cool-down.",
+            completed: false,
+            dateCompleted: null,
+          },
+          {
+            week: 5,
+            day: 2,
+            type: "Endurance Focus",
+            details:
+              "Run 5 km. This is a milestone! Focus on completing the distance.",
+            completed: false,
+            dateCompleted: null,
+          },
+          {
+            week: 5,
+            day: 3,
+            type: "Easy Run (Optional)",
+            details: "35 minutes at an easy pace.",
+            completed: false,
+            dateCompleted: null,
+          },
+          // Week 6
+          {
+            week: 6,
+            day: 1,
+            type: "Interval Focus",
+            details:
+              "5 min warm-up. 2 x (8 min run, 2 min walk). 5 min cool-down.",
+            completed: false,
+            dateCompleted: null,
+          },
+          {
+            week: 6,
+            day: 2,
+            type: "Endurance Focus",
+            details: "Run 5 km and aim to beat your previous time.",
+            completed: false,
+            dateCompleted: null,
+          },
+          {
+            week: 6,
+            day: 3,
+            type: "Easy Run (Optional)",
+            details: "30 minutes with some gentle hills if possible.",
+            completed: false,
+            dateCompleted: null,
+          },
+          // Week 7
+          {
+            week: 7,
+            day: 1,
+            type: "Interval Focus",
+            details:
+              "5 min warm-up. 2 x (10 min run, 2 min walk). 5 min cool-down.",
+            completed: false,
+            dateCompleted: null,
+          },
+          {
+            week: 7,
+            day: 2,
+            type: "Endurance Focus",
+            details: "Run 5.5 km. Push your endurance.",
+            completed: false,
+            dateCompleted: null,
+          },
+          {
+            week: 7,
+            day: 3,
+            type: "Easy Run (Optional)",
+            details: "35-40 minutes at an easy pace.",
+            completed: false,
+            dateCompleted: null,
+          },
+          // Week 8
+          {
+            week: 8,
+            day: 1,
+            type: "Interval Focus",
+            details:
+              "5 min warm-up. 20-minute continuous run. 5 min cool-down.",
+            completed: false,
+            dateCompleted: null,
+          },
+          {
+            week: 8,
+            day: 2,
+            type: "Endurance Focus",
+            details: "Run 6 km. Congratulations on your progress!",
+            completed: false,
+            dateCompleted: null,
+          },
+          {
+            week: 8,
+            day: 3,
+            type: "Easy Run (Optional)",
+            details: "30 minutes focusing on a consistent, comfortable pace.",
+            completed: false,
+            dateCompleted: null,
+          },
+        ];
+
+        let runs = [];
+        const tabHome = document.getElementById("tab-home");
+        const tabPlan = document.getElementById("tab-plan");
+        const tabStretch = document.getElementById("tab-stretch");
+
+        const homeView = document.getElementById("home-view");
+        const planView = document.getElementById("plan-view");
+        const stretchView = document.getElementById("stretch-view");
+
+        function saveState() {
+          localStorage.setItem("runningPlanState_v2", JSON.stringify(runs));
+        }
+
+        function loadState() {
+          const savedState = localStorage.getItem("runningPlanState_v2");
+          runs = savedState ? JSON.parse(savedState) : runningPlanData;
+        }
+
+        function formatDate(dateString) {
+          if (!dateString) return "";
+          const date = new Date(dateString);
+          return date.toLocaleDateString(undefined, {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          });
+        }
+
+        function markAsComplete(index) {
+          if (runs[index]) {
+            runs[index].completed = true;
+            runs[index].dateCompleted = new Date().toISOString();
+            saveState();
+            render();
+          }
+        }
+
+        function markAsIncomplete(index) {
+          if (runs[index]) {
+            runs[index].completed = false;
+            runs[index].dateCompleted = null;
+            saveState();
+            render();
+          }
+        }
+
+        function renderHomeView() {
+          const upcomingRunCard = document.getElementById("upcoming-run-card");
+          const lastRunCard = document.getElementById("last-run-card");
+
+          const upcomingRunIndex = runs.findIndex((run) => !run.completed);
+          const lastCompletedRunIndex =
+            upcomingRunIndex > 0
+              ? upcomingRunIndex - 1
+              : upcomingRunIndex === -1
+              ? runs.length - 1
+              : -1;
+
+          // Upcoming Run Card
+          if (upcomingRunIndex !== -1) {
+            const run = runs[upcomingRunIndex];
+            upcomingRunCard.innerHTML = `
+                        <h3>Upcoming Run</h3>
+                        <div class="card-content">
+                            <strong>${run.type}</strong> (Week ${run.week}, Day ${run.day})
+                            <p>${run.details}</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-complete" onclick="app.markAsComplete(${upcomingRunIndex})">Mark as Complete</button>
+                        </div>
+                    `;
+          } else {
+            upcomingRunCard.innerHTML = `
+                        <h3>All Done!</h3>
+                        <div class="card-content">
+                           <p>Congratulations! You've completed the entire plan!</p>
+                        </div>
+                    `;
+          }
+
+          // Last Completed Run Card
+          if (lastCompletedRunIndex !== -1) {
+            const run = runs[lastCompletedRunIndex];
+            lastRunCard.innerHTML = `
+                        <h3>Last Completed Run</h3>
+                        <div class="card-content">
+                            <strong>${run.type}</strong> (Week ${
+              run.week
+            }, Day ${run.day})
+                            <p>${run.details}</p>
+                            <p style="margin-top: 1rem; font-weight: bold; color: var(--success-color);">Completed on: ${formatDate(
+                              run.dateCompleted
+                            )}</p>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-undo" onclick="app.markAsIncomplete(${lastCompletedRunIndex})">Undo</button>
+                        </div>
+                    `;
+          } else {
+            lastRunCard.innerHTML = `
+                        <h3>Last Completed Run</h3>
+                        <div class="card-content">
+                           <p>No runs completed yet. Let's get started!</p>
+                        </div>
+                    `;
+          }
+        }
+
+        function renderFullPlanView() {
+          const runList = document.getElementById("run-list");
+          runList.innerHTML = "";
+
+          runs.forEach((run, index) => {
+            const li = document.createElement("li");
+            li.className = `run-item ${run.completed ? "completed" : ""}`;
+
+            let actionButtonHTML = "";
+            let dateHTML = "";
+
+            if (run.completed) {
+              dateHTML = `<div class="completion-date">Completed: ${formatDate(
+                run.dateCompleted
+              )}</div>`;
+              actionButtonHTML = `<button class="btn btn-undo" onclick="app.markAsIncomplete(${index})">Undo</button>`;
+            } else {
+              actionButtonHTML = `<button class="btn btn-complete" onclick="app.markAsComplete(${index})">Complete</button>`;
+            }
+
+            li.innerHTML = `
+                        <div class="run-info">
+                            <strong>${run.type}</strong>
+                            <div class="details">Week ${run.week}, Day ${run.day} - ${run.details}</div>
+                            ${dateHTML}
+                        </div>
+                        <div class="run-actions">
+                            ${actionButtonHTML}
+                        </div>
+                    `;
+            runList.appendChild(li);
+          });
+        }
+
+        function render() {
+          renderHomeView();
+          renderFullPlanView();
+        }
+
+        function switchTab(tab) {
+          tabHome.classList.remove("active");
+          tabPlan.classList.remove("active");
+          tabStretch.classList.remove("active");
+
+          homeView.classList.remove("active");
+          planView.classList.remove("active");
+          stretchView.classList.remove("active");
+
+          if (tab === "home") {
+            tabHome.classList.add("active");
+            homeView.classList.add("active");
+          } else if (tab === "plan") {
+            tabPlan.classList.add("active");
+            planView.classList.add("active");
+          } else if (tab === "stretch") {
+            tabStretch.classList.add("active");
+            stretchView.classList.add("active");
+          }
+        }
+
+        const stretchingData = [
+          {
+            title: "Neck Stretches",
+            duration: "Until mild discomfort per direction",
+            description:
+              "Gently tilt your head: ear to shoulder, chin to chest, then opposite shoulder. Hold each position until you feel a gentle stretch.",
+            image: "static/images/neck1.png",
+          },
+          {
+            title: "Shoulder Stretch (Behind Back)",
+            duration: "Hold for 30 sec-1 min",
+            description:
+              "Interlace fingers behind your back and raise your arms as high as comfortable. Targets shoulders, chest, and biceps.",
+            image: "static/images/shoulder1.png",
+          },
+          {
+            title: "Shoulder Stretch (Across Chest)",
+            duration: "Hold 30 sec per arm",
+            description:
+              "Extend one arm across your chest and use the other to press it closer to your body, stretching the rear delt and rotator cuff.",
+            image: "static/images/shoulder2.png",
+          },
+          {
+            title: "Tricep Stretch",
+            duration: "Hold 30 sec per side",
+            description:
+              "Raise one arm overhead, bend the elbow, and use your other hand to gently pull the elbow toward the opposite side.",
+            image: "static/images/tricep.png",
+          },
+          {
+            title: "Hip & Psoas Stretch",
+            duration: "Hold 1 min per side",
+            description:
+              "Kneel with one knee down and the other foot forward, push hips forward and chest up to target the psoas. Optional: reach back to stretch quad.",
+            image: "static/images/quad2.png",
+          },
+          {
+            title: "Seated Glute Stretch",
+            duration: "Hold 45 sec per side",
+            description:
+              "Sit or lie on your back, cross one ankle over the opposite knee, and gently pull the top knee toward your chest. Stretches glutes and hamstrings.",
+            image: "static/images/glute.png",
+          },
+          {
+            title: "Hamstring Stretch",
+            duration: "Hold 30 sec per side",
+            description:
+              "Sit with a straight spine and one leg extended, reach towards your toes while keeping your chest upright.",
+            image: "static/images/hamstring.png",
+          },
+          {
+            title: "Calf Stretch",
+            duration: "Hold 30 sec per side",
+            description:
+              "Place toes on an angled board (~70°) or step, heel down, leaning forward to stretch the calf muscle.",
+            image: "static/images/calf.png",
+          },
+        ];
+
+        function renderStretchingView() {
+          const container = document.getElementById("stretch-cards");
+          container.innerHTML = "";
+          stretchingData.forEach((stretch) => {
+            const card = document.createElement("div");
+            card.className = "card";
+            card.innerHTML = `
+                        <h3>${stretch.title}</h3>
+                        <img src="${stretch.image}" alt="${stretch.title}" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+                        <div class="card-content">
+                            <strong>Duration:</strong> ${stretch.duration}<br>
+                            <p>${stretch.description}</p>
+                        </div>
+                    `;
+            container.appendChild(card);
+          });
+        }
+
+        tabHome.addEventListener("click", () => switchTab("home"));
+        tabPlan.addEventListener("click", () => switchTab("plan"));
+        tabStretch.addEventListener("click", () => switchTab("stretch"));
+
+        renderStretchingView();
+
+        function init() {
+          window.app = { markAsComplete, markAsIncomplete };
+
+          tabHome.addEventListener("click", () => switchTab("home"));
+          tabPlan.addEventListener("click", () => switchTab("plan"));
+
+          loadState();
+          render();
+        }
+
+        init();
+      });
+    </script>
+  </body>
+</html>
