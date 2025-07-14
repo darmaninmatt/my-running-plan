@@ -1,0 +1,194 @@
+[
+  {
+    "week": 1,
+    "day": 1,
+    "type": "Interval Focus",
+    "details": "5 min warm-up. 8 x (2 min run, 1 min walk). 5 min cool-down.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 1,
+    "day": 2,
+    "type": "Endurance Focus",
+    "details": "30-minute continuous run/walk at a comfortable pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 1,
+    "day": 3,
+    "type": "Easy Run (Optional)",
+    "details": "20-25 minutes at an easy, conversational pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 2,
+    "day": 1,
+    "type": "Interval Focus",
+    "details": "5 min warm-up. 6 x (3 min run, 1 min walk). 5 min cool-down.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 2,
+    "day": 2,
+    "type": "Endurance Focus",
+    "details": "35-minute run, aiming for longer running intervals.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 2,
+    "day": 3,
+    "type": "Easy Run (Optional)",
+    "details": "25 minutes at an easy pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 3,
+    "day": 1,
+    "type": "Interval Focus",
+    "details": "5 min warm-up. 5 x (4 min run, 1 min walk). 5 min cool-down.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 3,
+    "day": 2,
+    "type": "Endurance Focus",
+    "details": "Run 4 km. Focus on a steady pace, taking walking breaks as needed.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 3,
+    "day": 3,
+    "type": "Easy Run (Optional)",
+    "details": "30 minutes at an easy pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 4,
+    "day": 1,
+    "type": "Interval Focus",
+    "details": "5 min warm-up. 4 x (5 min run, 1 min walk). 5 min cool-down.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 4,
+    "day": 2,
+    "type": "Endurance Focus",
+    "details": "Run 4.5 km. Try to run the first 2km without stopping.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 4,
+    "day": 3,
+    "type": "Easy Run (Optional)",
+    "details": "30 minutes at an easy pace, with a few faster-paced strides.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 5,
+    "day": 1,
+    "type": "Interval Focus",
+    "details": "5 min warm-up. 3 x (6 min run, 1 min walk). 5 min cool-down.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 5,
+    "day": 2,
+    "type": "Endurance Focus",
+    "details": "Run 5 km. This is a milestone! Focus on completing the distance.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 5,
+    "day": 3,
+    "type": "Easy Run (Optional)",
+    "details": "35 minutes at an easy pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 6,
+    "day": 1,
+    "type": "Interval Focus",
+    "details": "5 min warm-up. 2 x (8 min run, 2 min walk). 5 min cool-down.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 6,
+    "day": 2,
+    "type": "Endurance Focus",
+    "details": "Run 5 km and aim to beat your previous time.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 6,
+    "day": 3,
+    "type": "Easy Run (Optional)",
+    "details": "30 minutes with some gentle hills if possible.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 7,
+    "day": 1,
+    "type": "Interval Focus",
+    "details": "5 min warm-up. 2 x (10 min run, 2 min walk). 5 min cool-down.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 7,
+    "day": 2,
+    "type": "Endurance Focus",
+    "details": "Run 5.5 km. Push your endurance.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 7,
+    "day": 3,
+    "type": "Easy Run (Optional)",
+    "details": "35-40 minutes at an easy pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 8,
+    "day": 1,
+    "type": "Interval Focus",
+    "details": "5 min warm-up. 20-minute continuous run. 5 min cool-down.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 8,
+    "day": 2,
+    "type": "Endurance Focus",
+    "details": "Run 6 km. Congratulations on your progress!",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 8,
+    "day": 3,
+    "type": "Easy Run (Optional)",
+    "details": "30 minutes focusing on a consistent, comfortable pace.",
+    "completed": false,
+    "dateCompleted": null
+  }
+]

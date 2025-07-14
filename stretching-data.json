@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Neck Stretch",
+    "duration": "Hold 30 sec per side per position",
+    "description": "Gently tilt your head: ear to shoulder, chin to chest, then opposite shoulder. Hold each position until you feel a gentle stretch.",
+    "image": "static/images/neck1-min.png"
+  },
+  {
+    "title": "Shoulder Stretch (Behind Back)",
+    "duration": "Hold for 30 sec-1 min",
+    "description": "Interlace fingers behind your back and raise your arms as high as comfortable. Targets shoulders, chest, and biceps.",
+    "image": "static/images/shoulder1-min.png"
+  },
+  {
+    "title": "Shoulder Stretch (Across Chest)",
+    "duration": "Hold 30 sec per arm",
+    "description": "Extend one arm across your chest and use the other to press it closer to your body, stretching the rear delt and rotator cuff.",
+    "image": "static/images/shoulder2-min.png"
+  },
+  {
+    "title": "Tricep Stretch",
+    "duration": "Hold 30 sec per side",
+    "description": "Raise one arm overhead, bend the elbow, and use your other hand to gently pull the elbow toward the opposite side.",
+    "image": "static/images/tricep-min.png"
+  },
+  {
+    "title": "Hip & Psoas Stretch",
+    "duration": "Hold 1 min per side",
+    "description": "Kneel with one knee down and the other foot forward, push hips forward and chest up to target the psoas. Optional: reach back to stretch quad.",
+    "image": "static/images/quad2-min.png"
+  },
+  {
+    "title": "Seated Glute Stretch",
+    "duration": "Hold 45 sec per side",
+    "description": "Sit or lie on your back, cross one ankle over the opposite knee, and gently pull the top knee toward your chest. Stretches glutes and hamstrings.",
+    "image": "static/images/glute-min.png"
+  },
+  {
+    "title": "Hamstring Stretch",
+    "duration": "Hold 30 sec per side",
+    "description": "Sit with a straight spine and one leg extended, reach towards your toes while keeping your chest upright.",
+    "image": "static/images/hamstring-min.png"
+  },
+  {
+    "title": "Calf Stretch",
+    "duration": "Hold 30 sec per side",
+    "description": "Place toes on an angled board (~70°) or step, heel down, leaning forward to stretch the calf muscle.",
+    "image": "static/images/calf-min.png"
+  }
+]
