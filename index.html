@@ -119,6 +119,15 @@
 
       .card-footer {
         margin-top: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .timer-display {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: var(--primary-color);
       }
 
       #run-list {
@@ -188,6 +197,7 @@
       .btn-complete {
         background-color: var(--primary-color);
       }
+
       .btn-complete:hover {
         background-color: #0056b3;
       }
@@ -195,11 +205,26 @@
       .btn-undo {
         background-color: var(--secondary-color);
       }
+
       .btn-undo:hover {
         background-color: #5a6268;
       }
+
+      .btn-start {
+        background-color: var(--success-color);
+      }
+
+      .btn-start:hover {
+        background-color: #218838;
+      }
+
+      .btn:disabled {
+        background-color: var(--secondary-color);
+        cursor: not-allowed;
+      }
     </style>
   </head>
+
   <body>
     <div class="container">
       <header>
@@ -675,21 +700,97 @@
           },
         ];
 
+        function parseDuration(durationString) {
+          const match = durationString.match(/(\d+)\s*(sec|min)/);
+          if (match) {
+            const value = parseInt(match[1], 10);
+            const unit = match[2];
+            if (unit === "min") {
+              return value * 60;
+            }
+            return value;
+          }
+          // Fallback for formats like "30-45 sec"
+          const firstNumMatch = durationString.match(/(\d+)/);
+          if (firstNumMatch) {
+            return parseInt(firstNumMatch[1], 10);
+          }
+          return 30; // A default value if no number is found
+        }
+
+        let activeTimers = {};
+
+        function startTimer(duration, timerId, buttonId) {
+          if (activeTimers[timerId]) {
+            return; // Timer is already running
+          }
+
+          const timerDisplay = document.getElementById(timerId);
+          const startButton = document.getElementById(buttonId);
+          startButton.disabled = true;
+
+          let timeRemaining = duration;
+
+          const updateDisplay = () => {
+            const minutes = String(Math.floor(timeRemaining / 60)).padStart(
+              2,
+              "0"
+            );
+            const seconds = String(timeRemaining % 60).padStart(2, "0");
+            timerDisplay.textContent = `${minutes}:${seconds}`;
+          };
+
+          updateDisplay(); // Show initial time
+
+          activeTimers[timerId] = setInterval(() => {
+            timeRemaining--;
+            updateDisplay();
+
+            if (timeRemaining <= 0) {
+              clearInterval(activeTimers[timerId]);
+              delete activeTimers[timerId];
+              timerDisplay.textContent = "Done!";
+              startButton.disabled = false;
+            }
+          }, 1000);
+        }
+
         function renderStretchingView() {
           const container = document.getElementById("stretch-cards");
           container.innerHTML = "";
-          stretchingData.forEach((stretch) => {
+          stretchingData.forEach((stretch, index) => {
             const card = document.createElement("div");
             card.className = "card";
+
+            const durationInSeconds = parseDuration(stretch.duration);
+            const timerId = `timer-${index}`;
+            const buttonId = `start-btn-${index}`;
+
+            const minutes = String(Math.floor(durationInSeconds / 60)).padStart(
+              2,
+              "0"
+            );
+            const seconds = String(durationInSeconds % 60).padStart(2, "0");
+
             card.innerHTML = `
-                        <h3>${stretch.title}</h3>
-                        <img src="${stretch.image}" alt="${stretch.title}" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
-                        <div class="card-content">
-                            <strong>Duration:</strong> ${stretch.duration}<br>
-                            <p>${stretch.description}</p>
-                        </div>
-                    `;
+              <h3>${stretch.title}</h3>
+              <img src="${stretch.image}" alt="${stretch.title}" style="width: 100%; border-radius: 8px; margin-bottom: 1rem;">
+              <div class="card-content">
+                  <strong>Duration:</strong> ${stretch.duration}<br>
+                  <p>${stretch.description}</p>
+              </div>
+              <div class="card-footer">
+                  <span class="timer-display" id="${timerId}">${minutes}:${seconds}</span>
+                  <button class="btn btn-start" id="${buttonId}">Start</button>
+              </div>
+            `;
             container.appendChild(card);
+
+            document
+              .getElementById(buttonId)
+              .addEventListener("click", () =>
+                startTimer(durationInSeconds, timerId, buttonId)
+              );
           });
         }
 
@@ -697,16 +798,11 @@
         tabPlan.addEventListener("click", () => switchTab("plan"));
         tabStretch.addEventListener("click", () => switchTab("stretch"));
 
-        renderStretchingView();
-
         function init() {
           window.app = { markAsComplete, markAsIncomplete };
-
-          tabHome.addEventListener("click", () => switchTab("home"));
-          tabPlan.addEventListener("click", () => switchTab("plan"));
-
           loadState();
           render();
+          renderStretchingView();
         }
 
         init();
