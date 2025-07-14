@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function fetchRunningData() {
     try {
-      const response = await fetch("running-data.json");
+      const response = await fetch("data/running-data.json");
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -244,7 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
     container.innerHTML = "Loading stretches...";
 
     try {
-      const response = await fetch("stretching-data.json");
+      const response = await fetch("data/stretching-data.json");
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
