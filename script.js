@@ -34,37 +34,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function loadState() {
     const savedState = localStorage.getItem("runningPlanState_v2");
-  
+
     if (!savedState) {
       runs = runningPlanData;
       return;
     }
-  
-    const savedRunsRaw = JSON.parse(savedState);
-  
-    // Check if data is missing IDs (older version)
-    const savedRuns = savedRunsRaw.map((run) => {
-      if (!run.id && run.week && run.day) {
-        run.id = `w${run.week}-d${run.day}`;
-      }
-      return run;
-    });
-  
-    // Merge user data with latest plan
-    runs = runningPlanData.map((jsonRun) => {
-      const matchingSaved = savedRuns.find((r) => r.id === jsonRun.id);
-  
+
+    const savedRuns = JSON.parse(savedState);
+
+    runs = runningPlanData.map((runFromJson) => {
+      const saved = savedRuns.find((r) => r.id === runFromJson.id);
+
       return {
-        ...jsonRun,
-        completed: matchingSaved?.completed || false,
-        dateCompleted: matchingSaved?.dateCompleted || null,
+        ...runFromJson,
+        completed: saved?.completed || false,
+        dateCompleted: saved?.dateCompleted || null,
       };
     });
-  
-    // Save updated format back to localStorage (with IDs)
-    localStorage.setItem("runningPlanState_v2", JSON.stringify(runs));
   }
-  
 
   function formatDate(dateString) {
     if (!dateString) return "";
