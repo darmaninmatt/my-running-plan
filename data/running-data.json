@@ -120,6 +120,14 @@
     "dateCompleted": null
   },
   {
+    "week": 5,
+    "day": 4,
+    "type": "Recovery Run (Optional)",
+    "details": "20-25 minutes at a very easy, conversational pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
     "week": 6,
     "day": 1,
     "type": "Interval Focus",
@@ -140,6 +148,14 @@
     "day": 3,
     "type": "Easy Run (Optional)",
     "details": "30 minutes with some gentle hills if possible.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 6,
+    "day": 4,
+    "type": "Recovery Run (Optional)",
+    "details": "20-25 minutes at a very easy, conversational pace.",
     "completed": false,
     "dateCompleted": null
   },
@@ -168,6 +184,14 @@
     "dateCompleted": null
   },
   {
+    "week": 7,
+    "day": 4,
+    "type": "Recovery Run (Optional)",
+    "details": "20-25 minutes at a very easy, conversational pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
     "week": 8,
     "day": 1,
     "type": "Interval Focus",
@@ -188,6 +212,14 @@
     "day": 3,
     "type": "Easy Run (Optional)",
     "details": "30 minutes focusing on a consistent, comfortable pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "week": 8,
+    "day": 4,
+    "type": "Recovery Run (Optional)",
+    "details": "20-25 minutes at a very easy, conversational pace.",
     "completed": false,
     "dateCompleted": null
   }
