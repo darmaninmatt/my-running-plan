@@ -34,7 +34,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function loadState() {
     const savedState = localStorage.getItem("runningPlanState_v2");
-    runs = savedState ? JSON.parse(savedState) : runningPlanData;
+
+    if (!savedState) {
+      runs = runningPlanData;
+      return;
+    }
+
+    const savedRuns = JSON.parse(savedState);
+
+    // Merge the saved state (just completed status + dateCompleted)
+    runs = runningPlanData.map((runFromJson) => {
+      const matchingSaved = savedRuns.find(
+        (saved) =>
+          saved.week === runFromJson.week && saved.day === runFromJson.day
+      );
+
+      return {
+        ...runFromJson,
+        completed: matchingSaved?.completed || false,
+        dateCompleted: matchingSaved?.dateCompleted || null,
+      };
+    });
   }
 
   function formatDate(dateString) {
