@@ -42,17 +42,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const savedRuns = JSON.parse(savedState);
 
-    // Merge the saved state (just completed status + dateCompleted)
     runs = runningPlanData.map((runFromJson) => {
-      const matchingSaved = savedRuns.find(
-        (saved) =>
-          saved.week === runFromJson.week && saved.day === runFromJson.day
-      );
+      const saved = savedRuns.find((r) => r.id === runFromJson.id);
 
       return {
         ...runFromJson,
-        completed: matchingSaved?.completed || false,
-        dateCompleted: matchingSaved?.dateCompleted || null,
+        completed: saved?.completed || false,
+        dateCompleted: saved?.dateCompleted || null,
       };
     });
   }

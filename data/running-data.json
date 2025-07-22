@@ -1,5 +1,6 @@
 [
   {
+    "id": "w1-d1",
     "week": 1,
     "day": 1,
     "type": "Interval Focus",
@@ -8,6 +9,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w1-d2",
     "week": 1,
     "day": 2,
     "type": "Endurance Focus",
@@ -16,6 +18,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w1-d3",
     "week": 1,
     "day": 3,
     "type": "Easy Run",
@@ -24,6 +27,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w2-d1",
     "week": 2,
     "day": 1,
     "type": "Interval Focus",
@@ -32,6 +36,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w2-d2",
     "week": 2,
     "day": 2,
     "type": "Endurance Focus",
@@ -40,6 +45,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w2-d3",
     "week": 2,
     "day": 3,
     "type": "Easy Run",
@@ -48,6 +54,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w3-d1",
     "week": 3,
     "day": 1,
     "type": "Interval Focus",
@@ -56,6 +63,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w3-d2",
     "week": 3,
     "day": 2,
     "type": "Endurance Focus",
@@ -64,6 +72,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w3-d3",
     "week": 3,
     "day": 3,
     "type": "Easy Run",
@@ -72,6 +81,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w4-d1",
     "week": 4,
     "day": 1,
     "type": "Interval Focus",
@@ -80,6 +90,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w4-d2",
     "week": 4,
     "day": 2,
     "type": "Endurance Focus",
@@ -88,6 +99,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w4-d3",
     "week": 4,
     "day": 3,
     "type": "Easy Run",
@@ -96,6 +108,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w5-d1",
     "week": 5,
     "day": 1,
     "type": "Interval Focus",
@@ -104,6 +117,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w5-d2",
     "week": 5,
     "day": 2,
     "type": "Easy Run",
@@ -112,6 +126,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w5-d3",
     "week": 5,
     "day": 3,
     "type": "Endurance Focus",
@@ -120,6 +135,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w5-d4",
     "week": 5,
     "day": 4,
     "type": "Recovery Run",
@@ -128,6 +144,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w6-d1",
     "week": 6,
     "day": 1,
     "type": "Interval Focus",
@@ -136,6 +153,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w6-d2",
     "week": 6,
     "day": 2,
     "type": "Easy Run",
@@ -144,6 +162,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w6-d3",
     "week": 6,
     "day": 3,
     "type": "Endurance Focus",
@@ -152,6 +171,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w6-d4",
     "week": 6,
     "day": 4,
     "type": "Recovery Run",
@@ -160,6 +180,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w7-d1",
     "week": 7,
     "day": 1,
     "type": "Interval Focus",
@@ -168,6 +189,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w7-d2",
     "week": 7,
     "day": 2,
     "type": "Easy Run",
@@ -176,6 +198,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w7-d3",
     "week": 7,
     "day": 3,
     "type": "Endurance Focus",
@@ -184,6 +207,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w7-d4",
     "week": 7,
     "day": 4,
     "type": "Recovery Run",
@@ -192,6 +216,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w8-d1",
     "week": 8,
     "day": 1,
     "type": "Interval Focus",
@@ -200,6 +225,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w8-d2",
     "week": 8,
     "day": 2,
     "type": "Easy Run",
@@ -208,6 +234,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w8-d3",
     "week": 8,
     "day": 3,
     "type": "Endurance Focus",
@@ -216,6 +243,7 @@
     "dateCompleted": null
   },
   {
+    "id": "w8-d4",
     "week": 8,
     "day": 4,
     "type": "Recovery Run",
