@@ -120,8 +120,8 @@
     "id": "w5-d2",
     "week": 5,
     "day": 2,
-    "type": "Easy Run",
-    "details": "35 minutes at an easy pace.",
+    "type": "Recovery Run",
+    "details": "20-25 minutes at a very easy, conversational pace.",
     "completed": false,
     "dateCompleted": null
   },
@@ -138,8 +138,8 @@
     "id": "w5-d4",
     "week": 5,
     "day": 4,
-    "type": "Recovery Run",
-    "details": "20-25 minutes at a very easy, conversational pace.",
+    "type": "Easy Run",
+    "details": "35 minutes at an easy pace.",
     "completed": false,
     "dateCompleted": null
   },
@@ -156,8 +156,8 @@
     "id": "w6-d2",
     "week": 6,
     "day": 2,
-    "type": "Easy Run",
-    "details": "30 minutes with some gentle hills if possible.",
+    "type": "Recovery Run",
+    "details": "20-25 minutes at a very easy, conversational pace.",
     "completed": false,
     "dateCompleted": null
   },
@@ -174,8 +174,8 @@
     "id": "w6-d4",
     "week": 6,
     "day": 4,
-    "type": "Recovery Run",
-    "details": "20-25 minutes at a very easy, conversational pace.",
+    "type": "Easy Run",
+    "details": "30 minutes with some gentle hills if possible.",
     "completed": false,
     "dateCompleted": null
   },
@@ -192,8 +192,8 @@
     "id": "w7-d2",
     "week": 7,
     "day": 2,
-    "type": "Easy Run",
-    "details": "35-40 minutes at an easy pace.",
+    "type": "Recovery Run",
+    "details": "20-25 minutes at a very easy, conversational pace.",
     "completed": false,
     "dateCompleted": null
   },
@@ -210,8 +210,8 @@
     "id": "w7-d4",
     "week": 7,
     "day": 4,
-    "type": "Recovery Run",
-    "details": "20-25 minutes at a very easy, conversational pace.",
+    "type": "Easy Run",
+    "details": "35-40 minutes at an easy pace.",
     "completed": false,
     "dateCompleted": null
   },
@@ -228,8 +228,8 @@
     "id": "w8-d2",
     "week": 8,
     "day": 2,
-    "type": "Easy Run",
-    "details": "30 minutes focusing on a consistent, comfortable pace.",
+    "type": "Recovery Run",
+    "details": "20-25 minutes at a very easy, conversational pace.",
     "completed": false,
     "dateCompleted": null
   },
@@ -246,8 +246,8 @@
     "id": "w8-d4",
     "week": 8,
     "day": 4,
-    "type": "Recovery Run",
-    "details": "20-25 minutes at a very easy, conversational pace.",
+    "type": "Easy Run",
+    "details": "30 minutes focusing on a consistent, comfortable pace.",
     "completed": false,
     "dateCompleted": null
   }
