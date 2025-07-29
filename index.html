@@ -18,18 +18,40 @@
         </div>
       </header>
 
-      <nav>
-        <button class="nav-tab active" id="tab-home">Home</button>
-        <button class="nav-tab" id="tab-plan">Running</button>
-        <button class="nav-tab" id="tab-strength">Strength</button>
-        <button class="nav-tab" id="tab-stretch">Stretching</button>
+      <nav id="main-nav">
+        <button
+          class="hamburger-menu"
+          id="hamburger-menu"
+          aria-label="Open navigation menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <button class="nav-tab active" id="tab-home">Home</button>
+          <button class="nav-tab" id="tab-plan">Running</button>
+          <button class="nav-tab" id="tab-strength">Strength</button>
+          <button class="nav-tab" id="tab-stretch">Stretching</button>
+        </div>
       </nav>
 
       <main>
         <div id="home-view" class="view active">
-          <div class="dashboard-grid">
+          <div class="dashboard-grid" id="home-grid">
             <div class="card" id="upcoming-run-card"></div>
-            <div class="card" id="last-run-card"></div>
+            <div class="card card-shortcut" id="goto-strength">
+              <h3>Strength Training</h3>
+              <div class="card-content">
+                <p>Go to your bodyweight strength routine.</p>
+              </div>
+            </div>
+            <div class="card card-shortcut" id="goto-stretch">
+              <h3>Daily Stretching</h3>
+              <div class="card-content">
+                <p>Go to your daily stretching routine.</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -37,7 +59,7 @@
           <h2>Full Running Plan</h2>
           <ul id="run-list"></ul>
         </div>
-        
+
         <div id="strength-view" class="view">
           <h2>Bodyweight Strength Routine</h2>
           <div class="dashboard-grid" id="strength-cards"></div>

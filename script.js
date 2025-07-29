@@ -2,6 +2,12 @@ document.addEventListener("DOMContentLoaded", () => {
   let runs = [];
   let runningPlanData = [];
 
+  // --- NEW Element selectors for menu and shortcuts ---
+  const hamburgerMenu = document.getElementById("hamburger-menu");
+  const navLinks = document.getElementById("nav-links");
+  const gotoStrengthCard = document.getElementById("goto-strength");
+  const gotoStretchCard = document.getElementById("goto-stretch");
+
   const tabHome = document.getElementById("tab-home");
   const tabPlan = document.getElementById("tab-plan");
   const tabStrength = document.getElementById("tab-strength");
@@ -83,23 +89,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // --- UPDATED Home View Rendering ---
   function renderHomeView() {
     const upcomingRunCard = document.getElementById("upcoming-run-card");
-    const lastRunCard = document.getElementById("last-run-card");
-
     const upcomingRunIndex = runs.findIndex((run) => !run.completed);
-    const lastCompletedRunIndex =
-      runs.length > 0
-        ? runs
-            .slice()
-            .reverse()
-            .findIndex((run) => run.completed)
-        : -1;
-
-    let actualLastCompletedIndex = -1;
-    if (lastCompletedRunIndex !== -1) {
-      actualLastCompletedIndex = runs.length - 1 - lastCompletedRunIndex;
-    }
 
     // Upcoming Run Card
     if (upcomingRunIndex !== -1) {
@@ -115,36 +108,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>`;
     } else {
       upcomingRunCard.innerHTML = `
-                <h3>All Done!</h3>
+                <h3>All Runs Done!</h3>
                 <div class="card-content">
-                   <p>Congratulations! You've completed the entire plan!</p>
+                   <p>Congratulations! You've completed the entire running plan!</p>
                 </div>`;
     }
-
-    // Last Completed Run Card
-    if (actualLastCompletedIndex !== -1) {
-      const run = runs[actualLastCompletedIndex];
-      lastRunCard.innerHTML = `
-                <h3>Last Completed Run</h3>
-                <div class="card-content">
-                    <strong>${run.type}</strong> (Week ${run.week}, Day ${
-        run.day
-      })
-                    <p>${run.details}</p>
-                    <p style="margin-top: 1rem; font-weight: bold; color: var(--success-color);">Completed on: ${formatDate(
-                      run.dateCompleted
-                    )}</p>
-                </div>
-                <div class="card-footer">
-                    <button class="btn btn-undo" onclick="app.markAsIncomplete(${actualLastCompletedIndex})">Undo</button>
-                </div>`;
-    } else {
-      lastRunCard.innerHTML = `
-                <h3>Last Completed Run</h3>
-                <div class="card-content">
-                   <p>No runs completed yet. Let's get started!</p>
-                </div>`;
-    }
+    // The "Last Completed Run" card logic has been removed.
   }
 
   function renderFullPlanView() {
@@ -186,15 +155,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function switchTab(tab) {
-    tabHome.classList.remove("active");
-    tabPlan.classList.remove("active");
-    tabStrength.classList.remove("active");
-    tabStretch.classList.remove("active");
+    // --- NEW: Close mobile menu on tab switch ---
+    navLinks.classList.remove("open");
 
-    homeView.classList.remove("active");
-    planView.classList.remove("active");
-    strengthView.classList.remove("active");
-    stretchView.classList.remove("active");
+    const allTabs = [tabHome, tabPlan, tabStrength, tabStretch];
+    const allViews = [homeView, planView, strengthView, stretchView];
+
+    allTabs.forEach((t) => t.classList.remove("active"));
+    allViews.forEach((v) => v.classList.remove("active"));
 
     if (tab === "home") {
       tabHome.classList.add("active");
@@ -367,6 +335,13 @@ document.addEventListener("DOMContentLoaded", () => {
     window.app = { markAsComplete, markAsIncomplete };
 
     handleTheme();
+
+    // --- NEW Hamburger and Shortcut Listeners ---
+    hamburgerMenu.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+    gotoStrengthCard.addEventListener("click", () => switchTab("strength"));
+    gotoStretchCard.addEventListener("click", () => switchTab("stretch"));
 
     tabHome.addEventListener("click", () => switchTab("home"));
     tabPlan.addEventListener("click", () => switchTab("plan"));
