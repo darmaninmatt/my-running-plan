@@ -4,10 +4,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const tabHome = document.getElementById("tab-home");
   const tabPlan = document.getElementById("tab-plan");
+  const tabStrength = document.getElementById("tab-strength");
   const tabStretch = document.getElementById("tab-stretch");
 
   const homeView = document.getElementById("home-view");
   const planView = document.getElementById("plan-view");
+  const strengthView = document.getElementById("strength-view");
   const stretchView = document.getElementById("stretch-view");
 
   const themeToggle = document.getElementById("dark-mode-toggle");
@@ -186,10 +188,12 @@ document.addEventListener("DOMContentLoaded", () => {
   function switchTab(tab) {
     tabHome.classList.remove("active");
     tabPlan.classList.remove("active");
+    tabStrength.classList.remove("active");
     tabStretch.classList.remove("active");
 
     homeView.classList.remove("active");
     planView.classList.remove("active");
+    strengthView.classList.remove("active");
     stretchView.classList.remove("active");
 
     if (tab === "home") {
@@ -198,6 +202,9 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (tab === "plan") {
       tabPlan.classList.add("active");
       planView.classList.add("active");
+    } else if (tab === "strength") {
+      tabStrength.classList.add("active");
+      strengthView.classList.add("active");
     } else if (tab === "stretch") {
       tabStretch.classList.add("active");
       stretchView.classList.add("active");
@@ -253,6 +260,37 @@ document.addEventListener("DOMContentLoaded", () => {
         startButton.disabled = false;
       }
     }, 1000);
+  }
+
+  async function renderStrengthView() {
+    const container = document.getElementById("strength-cards");
+    container.innerHTML = "Loading strength routine...";
+
+    try {
+      const response = await fetch("data/strength-data.json");
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const strengthData = await response.json();
+      container.innerHTML = "";
+
+      strengthData.forEach((exercise) => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = `
+                <h3>${exercise.title}</h3>
+                <div class="card-content">
+                    <strong>Reps: ${exercise.reps}</strong>
+                    <p>${exercise.description}</p>
+                </div>`;
+        container.appendChild(card);
+      });
+    } catch (error) {
+      console.error("Error loading strength data:", error);
+      container.innerHTML =
+        "<p>Could not load strength routine. Please try again later.</p>";
+    }
   }
 
   async function renderStretchingView() {
@@ -332,12 +370,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     tabHome.addEventListener("click", () => switchTab("home"));
     tabPlan.addEventListener("click", () => switchTab("plan"));
+    tabStrength.addEventListener("click", () => switchTab("strength"));
     tabStretch.addEventListener("click", () => switchTab("stretch"));
 
     await fetchRunningData();
     loadState();
     render();
 
+    renderStrengthView();
     renderStretchingView();
   }
 

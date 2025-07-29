@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Running Plan v2</title>
+    <title>My Training Plan</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
       <header>
-        <h1>Your Running Plan</h1>
+        <h1>Your Training Plan</h1>
         <div class="theme-switch-wrapper">
           <label class="theme-switch" for="dark-mode-toggle">
             <input type="checkbox" id="dark-mode-toggle" />
@@ -21,6 +21,7 @@
       <nav>
         <button class="nav-tab active" id="tab-home">Home</button>
         <button class="nav-tab" id="tab-plan">Running</button>
+        <button class="nav-tab" id="tab-strength">Strength</button>
         <button class="nav-tab" id="tab-stretch">Stretching</button>
       </nav>
 
@@ -35,6 +36,11 @@
         <div id="plan-view" class="view">
           <h2>Full Running Plan</h2>
           <ul id="run-list"></ul>
+        </div>
+        
+        <div id="strength-view" class="view">
+          <h2>Bodyweight Strength Routine</h2>
+          <div class="dashboard-grid" id="strength-cards"></div>
         </div>
 
         <div id="stretch-view" class="view">

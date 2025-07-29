@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Workout Instructions",
+    "reps": "3 Rounds",
+    "description": "Perform each exercise back-to-back with minimal rest. After the last exercise (Plank), rest for 60-90 seconds before starting the next round."
+  },
+  {
+    "title": "1. Bodyweight Squats",
+    "reps": "10-15 Reps",
+    "description": "Builds overall leg strength in quads, glutes, and hamstrings. Keep your chest up and hips back. The foundation of lower body power for running."
+  },
+  {
+    "title": "2. Glute Bridges",
+    "reps": "15-20 Reps",
+    "description": "Activates and strengthens the glutes. Strong glutes are crucial for a powerful stride and protecting your lower back from running-related stress."
+  },
+  {
+    "title": "3. Reverse Lunges",
+    "reps": "10-12 Reps per leg",
+    "description": "Develops single-leg strength and stability, directly translating to better running balance and form. Stepping backward is often gentler on the knees."
+  },
+  {
+    "title": "4. Push-ups",
+    "reps": "As many as possible",
+    "description": "Builds upper body and core strength, helping you maintain good posture and an efficient arm swing. Perform on toes or knees."
+  },
+  {
+    "title": "5. Superman Y-T-W",
+    "reps": "5 Reps of each letter",
+    "description": "Lie on your stomach. Lift your chest and arms into a Y-shape, then a T-shape, then a W-shape. Strengthens your entire back and postural muscles."
+  },
+  {
+    "title": "6. Plank",
+    "reps": "Hold for 30-60 sec",
+    "description": "A core stability exercise. A strong core prevents energy leaks from excess torso rotation, making your running form much more efficient."
+  }
+]
