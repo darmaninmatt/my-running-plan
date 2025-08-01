@@ -118,6 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function renderFullPlanView() {
     const runList = document.getElementById("run-list");
+    const firstIncompleteIndex = runs.findIndex((run) => !run.completed);
     runList.innerHTML = "";
 
     runs.forEach((run, index) => {
@@ -131,9 +132,11 @@ document.addEventListener("DOMContentLoaded", () => {
         dateHTML = `<div class="completion-date">Completed: ${formatDate(
           run.dateCompleted
         )}</div>`;
-        actionButtonHTML = `<button class="btn btn-undo" onclick="app.markAsIncomplete(${index})">Undo</button>`;
+        if (index == firstIncompleteIndex - 1)
+          actionButtonHTML = `<button class="btn btn-undo" onclick="app.markAsIncomplete(${index})">Undo</button>`;
       } else {
-        actionButtonHTML = `<button class="btn btn-complete" onclick="app.markAsComplete(${index})">Complete</button>`;
+        if (index == firstIncompleteIndex)
+          actionButtonHTML = `<button class="btn btn-complete" onclick="app.markAsComplete(${index})">Complete</button>`;
       }
 
       li.innerHTML = `
