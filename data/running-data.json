@@ -250,5 +250,275 @@
     "details": "30 minutes focusing on a consistent, comfortable pace.",
     "completed": false,
     "dateCompleted": null
+  },
+  {
+    "id": "w9-d1",
+    "week": 9,
+    "day": 1,
+    "type": "Interval Focus",
+    "details": "5 min warm-up. 3 x (8 min run, 2 min walk). 5 min cool-down.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w9-d2",
+    "week": 9,
+    "day": 2,
+    "type": "Recovery Run",
+    "details": "25-30 minutes at a very easy, conversational pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w9-d3",
+    "week": 9,
+    "day": 3,
+    "type": "Endurance Focus",
+    "details": "Run 6.5 km. Focus on maintaining a steady pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w9-d4",
+    "week": 9,
+    "day": 4,
+    "type": "Easy Run",
+    "details": "30 minutes at an easy pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w10-d1",
+    "week": 10,
+    "day": 1,
+    "type": "Interval Focus",
+    "details": "5 min warm-up. 2 x (12 min run, 2 min walk). 5 min cool-down.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w10-d2",
+    "week": 10,
+    "day": 2,
+    "type": "Recovery Run",
+    "details": "25-30 minutes at a very easy pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w10-d3",
+    "week": 10,
+    "day": 3,
+    "type": "Endurance Focus",
+    "details": "Run 7 km. A new distance milestone!",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w10-d4",
+    "week": 10,
+    "day": 4,
+    "type": "Easy Run",
+    "details": "35 minutes at an easy pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w11-d1",
+    "week": 11,
+    "day": 1,
+    "type": "Interval Focus",
+    "details": "5 min warm-up. 25-minute continuous run. 5 min cool-down.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w11-d2",
+    "week": 11,
+    "day": 2,
+    "type": "Recovery Run",
+    "details": "20-25 minutes at a very easy pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w11-d3",
+    "week": 11,
+    "day": 3,
+    "type": "Endurance Focus",
+    "details": "Run 7.5 km. Concentrate on your running form as you get tired.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w11-d4",
+    "week": 11,
+    "day": 4,
+    "type": "Easy Run",
+    "details": "30 minutes with a few gentle hills if possible.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w12-d1",
+    "week": 12,
+    "day": 1,
+    "type": "Interval Focus",
+    "details": "5 min warm-up. 2 x (15 min run, 3 min walk). 5 min cool-down.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w12-d2",
+    "week": 12,
+    "day": 2,
+    "type": "Recovery Run",
+    "details": "25 minutes at a very easy, conversational pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w12-d3",
+    "week": 12,
+    "day": 3,
+    "type": "Endurance Focus",
+    "details": "Run 8 km. You're getting so close to your goal!",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w12-d4",
+    "week": 12,
+    "day": 4,
+    "type": "Easy Run",
+    "details": "35 minutes at an easy pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w13-d1",
+    "week": 13,
+    "day": 1,
+    "type": "Interval Focus",
+    "details": "5 min warm-up. 30-minute continuous run. 5 min cool-down.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w13-d2",
+    "week": 13,
+    "day": 2,
+    "type": "Recovery Run",
+    "details": "25-30 minutes at a very easy pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w13-d3",
+    "week": 13,
+    "day": 3,
+    "type": "Endurance Focus",
+    "details": "Run 9 km. This is your longest run before the 10k attempt. Go steady.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w13-d4",
+    "week": 13,
+    "day": 4,
+    "type": "Easy Run",
+    "details": "30 minutes at an easy pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w14-d1",
+    "week": 14,
+    "day": 1,
+    "type": "Interval Focus",
+    "details": "5 min warm-up. 2 x (10 min run, 2 min walk). Keep it light.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w14-d2",
+    "week": 14,
+    "day": 2,
+    "type": "Recovery Run",
+    "details": "20 minutes at a very easy pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w14-d3",
+    "week": 14,
+    "day": 3,
+    "type": "Endurance Focus",
+    "details": "Run 5 km. A shorter run to keep your legs fresh.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w14-d4",
+    "week": 14,
+    "day": 4,
+    "type": "Easy Run",
+    "details": "25 minutes at an easy pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w15-d1",
+    "week": 15,
+    "day": 1,
+    "type": "Easy Run",
+    "details": "20 minutes at an easy pace, with 4-5 short (100m) strides at a faster pace.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w15-d2",
+    "week": 15,
+    "day": 2,
+    "type": "Rest",
+    "details": "Complete rest or some light cross-training like walking or cycling.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w15-d3",
+    "week": 15,
+    "day": 3,
+    "type": "Endurance Focus",
+    "details": "Your 10k Run! Warm up well, pace yourself, and enjoy the achievement.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w15-d4",
+    "week": 15,
+    "day": 4,
+    "type": "Rest",
+    "details": "Celebrate your accomplishment!",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w16-d1",
+    "week": 16,
+    "day": 1,
+    "type": "Active Recovery",
+    "details": "Focus on light activities. 20-25 minute very easy run or cross-train.",
+    "completed": false,
+    "dateCompleted": null
+  },
+  {
+    "id": "w16-d2",
+    "week": 16,
+    "day": 2,
+    "type": "Active Recovery",
+    "details": "20-25 minute very easy run or cross-train.",
+    "completed": false,
+    "dateCompleted": null
   }
 ]
